@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ultimate Customs 056 | Panel Beating · Spray Painting · Car Service · Parts</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --red: #D10000;
+  --red-dark: #9B0000;
+  --red-glow: rgba(209,0,0,0.18);
+  --silver: #C0C5CE;
+  --silver-light: #E8ECF0;
+  --silver-dark: #7A8290;
+  --black: #080808;
+  --black2: #101010;
+  --black3: #181818;
+  --black4: #222222;
+  --black5: #2A2A2A;
+  --text: #EDEDED;
+  --muted: #888;
+  --border: rgba(192,197,206,0.12);
+  --border-red: rgba(209,0,0,0.3);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Nunito',sans-serif;
+  background:var(--black);
+  color:var(--text);
+  overflow-x:hidden;
+  font-size:16px;
+  line-height:1.6;
+}
+
+/* ===== NAV ===== */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:68px;
+  background:rgba(8,8,8,0.96);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(12px);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2.5rem;
+}
+.nav-logo{
+  display:flex;align-items:center;gap:12px;
+  text-decoration:none;
+}
+.logo-emblem{
+  width:42px;height:42px;
+  background:var(--red);
+  clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:18px;color:#fff;letter-spacing:0;
+  flex-shrink:0;
+}
+.logo-text{
+  display:flex;flex-direction:column;line-height:1.1;
+}
+.logo-text .top{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:22px;color:#fff;letter-spacing:3px;
+}
+.logo-text .bot{
+  font-size:10px;font-weight:700;letter-spacing:3px;
+  color:var(--silver-dark);text-transform:uppercase;
+}
+.logo-text .bot span{color:var(--red);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{
+  color:var(--muted);text-decoration:none;
+  font-size:14px;font-weight:700;letter-spacing:1px;
+  text-transform:uppercase;
+  transition:color .2s;
+}
+.nav-links a:hover{color:#fff;}
+.nav-cta{
+  background:var(--red);color:#fff !important;
+  padding:9px 22px;border-radius:4px;
+  font-weight:800 !important;
+  transition:background .2s !important;
+}
+.nav-cta:hover{background:var(--red-dark)!important;color:#fff!important;}
+.hamburger{
+  display:none;flex-direction:column;gap:5px;
+  cursor:pointer;background:none;border:none;padding:4px;
+}
+.hamburger span{display:block;width:26px;height:2px;background:var(--text);border-radius:2px;transition:.3s;}
+.mob-menu{
+  display:none;position:fixed;top:68px;left:0;right:0;
+  background:var(--black2);border-bottom:2px solid var(--red);
+  padding:1.5rem 2rem;flex-direction:column;gap:1rem;z-index:999;
+}
+.mob-menu.open{display:flex;}
+.mob-menu a{
+  color:var(--text);text-decoration:none;
+  font-size:16px;font-weight:700;letter-spacing:1px;
+  text-transform:uppercase;padding:.6rem 0;
+  border-bottom:1px solid var(--border);
+}
+.mob-menu a:last-child{border:none;color:var(--red);}
+
+/* ===== HERO ===== */
+#hero{
+  min-height:100vh;
+  background:var(--black);
+  display:flex;flex-direction:column;justify-content:center;
+  padding:110px 2.5rem 80px;
+  position:relative;overflow:hidden;
+}
+
+/* Carbon fibre texture */
+.hero-carbon{
+  position:absolute;inset:0;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.015) 0px,
+      rgba(255,255,255,0.015) 1px,
+      transparent 1px,transparent 6px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255,255,255,0.015) 0px,
+      rgba(255,255,255,0.015) 1px,
+      transparent 1px,transparent 6px
+    );
+  pointer-events:none;
+}
+
+/* Paint splatter accent */
+.paint-drip{
+  position:absolute;right:0;top:0;bottom:0;width:55%;
+  background:linear-gradient(135deg,transparent 40%,rgba(209,0,0,0.07) 60%,rgba(209,0,0,0.12) 80%,transparent 100%);
+  pointer-events:none;
+}
+.paint-drip::after{
+  content:'';
+  position:absolute;right:5%;top:15%;
+  width:320px;height:320px;border-radius:50%;
+  background:radial-gradient(circle,rgba(209,0,0,0.15) 0%,transparent 70%);
+}
+.gear-bg{
+  position:absolute;right:-60px;bottom:-60px;
+  width:420px;height:420px;
+  border:2px solid rgba(192,197,206,0.04);
+  border-radius:50%;
+  pointer-events:none;
+}
+.gear-bg::before{
+  content:'';position:absolute;inset:30px;
+  border:2px solid rgba(209,0,0,0.06);border-radius:50%;
+}
+.gear-bg::after{
+  content:'';position:absolute;inset:70px;
+  border:2px solid rgba(192,197,206,0.04);border-radius:50%;
+}
+
+.hero-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(209,0,0,0.1);
+  border:1px solid var(--border-red);
+  color:#ff6b6b;
+  font-size:11px;font-weight:800;letter-spacing:2.5px;
+  text-transform:uppercase;padding:7px 16px;border-radius:30px;
+  margin-bottom:2rem;width:fit-content;
+}
+.hero-tag .dot{
+  width:7px;height:7px;background:var(--red);border-radius:50%;
+  animation:blink 1.4s infinite;
+}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+
+.hero h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(64px,11vw,130px);
+  line-height:.92;
+  color:#fff;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:1.8rem;
+}
+.hero h1 .line-red{
+  color:var(--red);
+  display:block;
+}
+.hero h1 .line-silver{
+  color:var(--silver);
+  font-size:clamp(28px,4vw,52px);
+  display:block;letter-spacing:8px;
+}
+
+.hero-desc{
+  font-size:17px;font-weight:500;
+  color:var(--muted);max-width:540px;
+  line-height:1.75;margin-bottom:2.5rem;
+}
+.hero-desc strong{color:var(--silver);font-weight:700;}
+
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;}
+.btn-red{
+  background:var(--red);color:#fff;
+  padding:14px 34px;border-radius:4px;
+  font-weight:800;font-size:15px;letter-spacing:.5px;
+  text-decoration:none;border:none;cursor:pointer;
+  font-family:'Nunito',sans-serif;
+  transition:background .2s,transform .1s;
+  display:inline-block;
+}
+.btn-red:hover{background:var(--red-dark);}
+.btn-red:active{transform:scale(.98);}
+.btn-ghost{
+  background:transparent;color:var(--silver);
+  padding:14px 34px;border-radius:4px;
+  font-weight:800;font-size:15px;letter-spacing:.5px;
+  text-decoration:none;
+  border:1.5px solid rgba(192,197,206,0.25);cursor:pointer;
+  font-family:'Nunito',sans-serif;
+  transition:border-color .2s,color .2s;display:inline-block;
+}
+.btn-ghost:hover{border-color:var(--silver);color:#fff;}
+
+.hero-badges{
+  display:flex;gap:1.5rem;flex-wrap:wrap;
+}
+.badge{
+  display:flex;align-items:center;gap:10px;
+  background:var(--black3);
+  border:1px solid var(--border);
+  border-radius:8px;padding:12px 18px;
+}
+.badge-icon{font-size:22px;}
+.badge-text{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;line-height:1.3;}
+.badge-text span{display:block;color:#fff;font-size:14px;}
+
+/* ===== BRAND TICKER ===== */
+#ticker{
+  background:var(--red);
+  padding:14px 0;overflow:hidden;
+  border-top:1px solid rgba(255,255,255,0.1);
+  border-bottom:1px solid rgba(0,0,0,0.3);
+}
+.ticker-track{
+  display:flex;gap:0;width:max-content;
+  animation:tickerScroll 35s linear infinite;
+}
+@keyframes tickerScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.ticker-track:hover{animation-play-state:paused;}
+.ticker-item{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:18px;letter-spacing:3px;color:#fff;
+  white-space:nowrap;padding:0 24px;
+  display:flex;align-items:center;gap:24px;
+}
+.ticker-item::after{
+  content:'◆';font-size:10px;color:rgba(255,255,255,0.5);
+}
+
+/* ===== SECTION SHARED ===== */
+section{padding:90px 2.5rem;}
+.sec-label{
+  font-size:11px;font-weight:800;letter-spacing:3px;
+  text-transform:uppercase;color:var(--red);
+  margin-bottom:10px;
+}
+.sec-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(40px,6vw,64px);
+  letter-spacing:2px;text-transform:uppercase;
+  color:#fff;line-height:1;margin-bottom:16px;
+}
+.sec-title span{color:var(--red);}
+.sec-sub{
+  font-size:16px;font-weight:500;
+  color:var(--muted);max-width:520px;
+  line-height:1.7;
+}
+
+/* ===== SERVICES ===== */
+#services{background:var(--black2);}
+.services-intro{max-width:1100px;margin:0 auto 50px;}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:3px;max-width:1100px;margin:0 auto;
+}
+.svc{
+  background:var(--black3);
+  padding:2.5rem 2rem 3rem;
+  border:1px solid var(--border);
+  position:relative;overflow:hidden;
+  transition:border-color .3s,background .3s;
+}
+.svc::after{
+  content:'';
+  position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:var(--red);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .35s;
+}
+.svc:hover{border-color:rgba(209,0,0,0.35);background:var(--black4);}
+.svc:hover::after{transform:scaleX(1);}
+.svc-icon{
+  font-size:44px;margin-bottom:1.5rem;display:block;
+  filter:drop-shadow(0 0 12px rgba(209,0,0,0.3));
+}
+.svc h3{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:28px;letter-spacing:2px;
+  color:#fff;margin-bottom:10px;
+}
+.svc p{font-size:14px;font-weight:500;color:var(--muted);line-height:1.75;}
+.svc-num{
+  position:absolute;top:1.5rem;right:1.5rem;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:52px;color:rgba(209,0,0,0.07);line-height:1;
+  letter-spacing:0;
+}
+.svc-tags{
+  display:flex;gap:6px;flex-wrap:wrap;margin-top:1.2rem;
+}
+.svc-tag{
+  background:rgba(209,0,0,0.1);border:1px solid rgba(209,0,0,0.2);
+  color:#ff7070;font-size:11px;font-weight:700;
+  padding:3px 10px;border-radius:20px;letter-spacing:.5px;
+}
+
+/* ===== QUOTE ===== */
+#quote{background:var(--black);}
+.quote-container{max-width:920px;margin:0 auto;}
+
+/* paint streak decoration */
+.paint-streak{
+  height:4px;background:linear-gradient(90deg,var(--red) 0%,#ff4444 50%,var(--red-dark) 100%);
+  border-radius:2px 2px 0 0;
+  margin-bottom:0;
+}
+
+.quote-box{
+  background:var(--black3);
+  border:1px solid var(--border);
+  border-top:none;
+  border-radius:0 0 8px 8px;
+  overflow:hidden;
+}
+.quote-head{
+  background:var(--black4);
+  border-bottom:1px solid var(--border);
+  padding:1.8rem 2.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+}
+.quote-head h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:26px;letter-spacing:2px;color:#fff;
+}
+.quote-head p{font-size:13px;font-weight:500;color:var(--muted);margin-top:2px;}
+.q-badges{display:flex;gap:8px;}
+.q-badge{
+  background:rgba(209,0,0,0.12);border:1px solid rgba(209,0,0,0.25);
+  color:#ff7070;font-size:12px;font-weight:700;
+  padding:5px 12px;border-radius:20px;
+}
+.qbody{padding:2.5rem;}
+
+/* form */
+.fg{display:flex;flex-direction:column;gap:7px;}
+.fg label{
+  font-size:12px;font-weight:800;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--silver-dark);
+}
+.fg input,.fg select,.fg textarea{
+  background:var(--black2);
+  border:1.5px solid var(--border);
+  color:var(--text);
+  padding:12px 15px;border-radius:5px;
+  font-family:'Nunito',sans-serif;font-size:14px;font-weight:500;
+  width:100%;transition:border-color .2s;
+  appearance:none;-webkit-appearance:none;
+}
+.fg select{
+  cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 15px center;padding-right:38px;
+}
+.fg select option{background:var(--black2);}
+.fg input:focus,.fg select:focus,.fg textarea:focus{
+  outline:none;border-color:var(--red);
+}
+.fg textarea{min-height:110px;resize:vertical;line-height:1.6;}
+.fgrid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:1.2rem;margin-bottom:1.5rem;
+}
+.fdiv{border:none;border-top:1px solid var(--border);margin:1.5rem 0;}
+
+/* checkboxes */
+.check-label{
+  font-size:12px;font-weight:800;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--silver-dark);
+  display:block;margin-bottom:12px;
+}
+.check-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:8px;margin-bottom:1.5rem;
+}
+.chk{
+  display:flex;align-items:center;gap:10px;
+  background:var(--black2);border:1.5px solid var(--border);
+  padding:11px 14px;border-radius:5px;cursor:pointer;
+  font-size:13px;font-weight:700;color:var(--muted);
+  user-select:none;transition:border-color .2s,color .2s;
+}
+.chk:hover{border-color:rgba(209,0,0,0.4);}
+.chk.on{border-color:var(--red);color:#fff;background:rgba(209,0,0,0.06);}
+.chk input[type=checkbox]{accent-color:var(--red);width:15px;height:15px;cursor:pointer;flex-shrink:0;}
+
+/* radio */
+.radio-grid{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.5rem;}
+.rdo{
+  display:flex;align-items:center;gap:9px;
+  background:var(--black2);border:1.5px solid var(--border);
+  padding:11px 18px;border-radius:5px;cursor:pointer;
+  font-size:13px;font-weight:700;color:var(--muted);
+  user-select:none;transition:border-color .2s,color .2s;
+}
+.rdo:hover{border-color:rgba(209,0,0,0.4);}
+.rdo.on{border-color:var(--red);color:#fff;background:rgba(209,0,0,0.06);}
+.rdo input[type=radio]{accent-color:var(--red);width:15px;height:15px;cursor:pointer;}
+
+.submit-row{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+}
+.submit-note{font-size:12px;font-weight:600;color:var(--muted);line-height:1.6;}
+.submit-note strong{color:var(--silver);}
+#submitBtn{
+  background:var(--red);color:#fff;
+  padding:15px 40px;border-radius:5px;
+  font-weight:800;font-size:15px;
+  font-family:'Nunito',sans-serif;
+  border:none;cursor:pointer;letter-spacing:.5px;
+  transition:background .2s;
+}
+#submitBtn:hover{background:var(--red-dark);}
+#submitBtn:disabled{background:#555;cursor:not-allowed;}
+.success{
+  display:none;
+  background:rgba(0,180,90,0.1);border:1.5px solid rgba(0,180,90,0.3);
+  border-radius:6px;padding:1.2rem 1.5rem;margin-top:1.5rem;
+  color:#4ade80;font-size:14px;font-weight:700;text-align:center;
+}
+.success.show{display:block;}
+
+/* parts row */
+#partsSection{display:none;margin-bottom:1.5rem;}
+
+/* ===== WHY US ===== */
+#why{background:var(--black2);}
+.why-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4rem;max-width:1100px;margin:0 auto;align-items:center;
+}
+.why-left h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(38px,5vw,58px);letter-spacing:2px;
+  text-transform:uppercase;color:#fff;line-height:1;margin-bottom:1.5rem;
+}
+.why-left h2 span{color:var(--red);}
+.why-left p{font-size:15px;font-weight:500;color:var(--muted);line-height:1.8;margin-bottom:1rem;}
+.why-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:1.5rem;}
+.why-list li{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:14px;font-weight:600;color:var(--muted);
+}
+.why-list li .tick{
+  flex-shrink:0;width:20px;height:20px;margin-top:2px;
+  background:var(--red);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;color:#fff;font-weight:900;
+}
+.why-right{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;
+}
+.why-card{
+  background:var(--black3);border:1px solid var(--border);
+  border-radius:8px;padding:1.5rem;text-align:center;
+}
+.why-card.span2{grid-column:1/-1;background:rgba(209,0,0,0.07);border-color:rgba(209,0,0,0.2);}
+.why-card .big{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:44px;color:#fff;letter-spacing:1px;line-height:1;
+}
+.why-card .big span{color:var(--red);}
+.why-card .lbl{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;}
+
+/* ===== BRANDS ===== */
+#brands{background:var(--black);padding:70px 2.5rem;}
+.brands-intro{text-align:center;margin-bottom:2.5rem;}
+.brands-intro p{font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+.brands-scroll{overflow:hidden;}
+.brands-track{
+  display:flex;gap:10px;width:max-content;
+  animation:bscroll 38s linear infinite;
+}
+.brands-track:hover{animation-play-state:paused;}
+@keyframes bscroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.brand-chip{
+  background:var(--black3);border:1px solid var(--border);
+  border-radius:4px;padding:9px 18px;
+  font-size:13px;font-weight:700;letter-spacing:1px;
+  color:var(--silver-dark);white-space:nowrap;text-transform:uppercase;
+  transition:border-color .2s,color .2s;cursor:default;
+}
+.brand-chip:hover{border-color:rgba(209,0,0,0.4);color:var(--silver);}
+
+/* ===== SOCIAL ===== */
+#social{background:var(--black2);padding:80px 2.5rem;}
+.social-inner{max-width:680px;margin:0 auto;text-align:center;}
+.social-inner h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:48px;letter-spacing:3px;color:#fff;text-transform:uppercase;margin-bottom:12px;
+}
+.social-inner p{font-size:15px;font-weight:500;color:var(--muted);margin-bottom:2.5rem;}
+.social-cards{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+.social-card{
+  display:flex;align-items:center;gap:12px;
+  background:var(--black3);border:1px solid var(--border);
+  padding:14px 22px;border-radius:8px;
+  text-decoration:none;font-size:14px;font-weight:700;
+  color:var(--text);letter-spacing:.5px;
+  transition:border-color .2s,background .2s;
+  min-width:160px;
+}
+.social-card:hover{border-color:var(--red);background:rgba(209,0,0,0.06);}
+.social-card.soon{opacity:.45;cursor:not-allowed;pointer-events:none;}
+.si{font-size:24px;}
+.sc-text{text-align:left;}
+.sc-text .sc-name{font-size:13px;font-weight:800;color:#fff;}
+.sc-text .sc-sub{font-size:11px;font-weight:600;color:var(--muted);}
+
+/* ===== CONTACT ===== */
+#contact{background:var(--black);padding:70px 2.5rem;}
+.contact-strip{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:3px;max-width:1100px;margin:0 auto;
+}
+.ci{
+  background:var(--black3);border:1px solid var(--border);
+  padding:2rem 1.8rem;
+  display:flex;align-items:center;gap:1rem;
+  transition:border-color .2s;
+}
+.ci:hover{border-color:rgba(209,0,0,0.3);}
+.ci-icon{
+  width:50px;height:50px;flex-shrink:0;
+  background:rgba(209,0,0,0.1);border:1px solid rgba(209,0,0,0.2);
+  border-radius:8px;display:flex;align-items:center;justify-content:center;
+  font-size:24px;
+}
+.ci-text p{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.ci-text a,.ci-text span{font-size:15px;font-weight:700;color:#fff;text-decoration:none;display:block;transition:color .2s;}
+.ci-text a:hover{color:var(--red);}
+
+/* ===== FOOTER ===== */
+footer{
+  background:var(--black2);border-top:1px solid var(--border);
+  padding:2rem 2.5rem;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.fl{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:22px;color:#fff;letter-spacing:3px;text-decoration:none;
+}
+.fl span{color:var(--red);}
+footer p{font-size:12px;font-weight:600;color:var(--muted);}
+
+/* ===== WHATSAPP FLOAT ===== */
+.wa-float{
+  position:fixed;bottom:26px;right:26px;z-index:999;
+  width:58px;height:58px;border-radius:50%;
+  background:#25D366;
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;
+  box-shadow:0 4px 20px rgba(37,211,102,0.4);
+  animation:wafloat 3s ease-in-out infinite;
+}
+.wa-float svg{width:32px;height:32px;fill:#fff;}
+@keyframes wafloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+.wa-tip{
+  position:fixed;bottom:95px;right:26px;z-index:998;
+  background:#fff;color:#111;
+  font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;
+  padding:8px 16px;border-radius:24px;
+  box-shadow:0 2px 14px rgba(0,0,0,0.15);
+  white-space:nowrap;pointer-events:none;
+  animation:tipIn .5s ease 2.5s both;
+}
+@keyframes tipIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:800px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .why-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .why-right{margin-top:0;}
+  .qbody{padding:1.5rem;}
+  .hero h1{font-size:clamp(52px,14vw,80px);}
+}
+</style>
+</head>
+<body>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/27731509869" target="_blank" class="wa-float" aria-label="WhatsApp Us">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<div class="wa-tip">💬 WhatsApp us now!</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <div class="logo-emblem">UC</div>
+    <div class="logo-text">
+      <span class="top">Ultimate Customs</span>
+      <span class="bot">0<span>5</span>6 · Auto Specialists</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#brands">Brands</a></li>
+    <li><a href="#quote">Get Quote</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#quote" class="nav-cta">Free Quote</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMob()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="#services" onclick="closeMob()">Services</a>
+  <a href="#why" onclick="closeMob()">Why Us</a>
+  <a href="#brands" onclick="closeMob()">Brands</a>
+  <a href="#quote" onclick="closeMob()">Get Quote</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="#quote" onclick="closeMob()">→ Free Quote</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-carbon"></div>
+  <div class="paint-drip"></div>
+  <div class="gear-bg"></div>
+
+  <div class="hero-tag">
+    <span class="dot"></span>
+    Proudly South African · Est. in the 056 Region
+  </div>
+
+  <h1>
+    Ultimate<br>
+    <span class="line-red">Customs</span>
+    <span class="line-silver">056</span>
+  </h1>
+
+  <p class="hero-desc">
+    Your one-stop auto workshop for <strong>quality spray painting</strong>, <strong>panel beating</strong>, <strong>car servicing &amp; repairs</strong>, and <strong>parts sourcing, sales &amp; fitting</strong>. Every make. Every model. Done right.
+  </p>
+
+  <div class="hero-btns">
+    <a href="#quote" class="btn-red">Get a Free Quote</a>
+    <a href="#services" class="btn-ghost">View Services</a>
+  </div>
+
+  <div class="hero-badges">
+    <div class="badge">
+      <span class="badge-icon">🎨</span>
+      <div class="badge-text"><span>Spray Painting</span>Factory finish quality</div>
+    </div>
+    <div class="badge">
+      <span class="badge-icon">🔨</span>
+      <div class="badge-text"><span>Panel Beating</span>Accident damage experts</div>
+    </div>
+    <div class="badge">
+      <span class="badge-icon">🔧</span>
+      <div class="badge-text"><span>Car Service</span>All makes &amp; models</div>
+    </div>
+    <div class="badge">
+      <span class="badge-icon">🛞</span>
+      <div class="badge-text"><span>Parts Supply</span>Sourcing &amp; fitting</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div id="ticker">
+  <div class="ticker-track" id="tickerTrack"></div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-intro">
+    <div class="sec-label">What We Do</div>
+    <h2 class="sec-title">Our <span>Services</span></h2>
+    <p class="sec-sub">Professional automotive work with the attention to detail that your vehicle deserves.</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc">
+      <span class="svc-icon">🎨</span>
+      <div class="svc-num">01</div>
+      <h3>Spray Painting</h3>
+      <p>From a full vehicle respray to panel spot repairs, we use premium automotive paints for a showroom finish. Colour matching, custom finishes, and scratch repairs.</p>
+      <div class="svc-tags">
+        <span class="svc-tag">Full Respray</span>
+        <span class="svc-tag">Spot Repair</span>
+        <span class="svc-tag">Colour Match</span>
+        <span class="svc-tag">Custom Finish</span>
+      </div>
+    </div>
+    <div class="svc">
+      <span class="svc-icon">🔨</span>
+      <div class="svc-num">02</div>
+      <h3>Panel Beating</h3>
+      <p>Expert panel beating restoring your vehicle's body to its original shape. Hail damage, accident repairs, dent removal — we make it look like it never happened.</p>
+      <div class="svc-tags">
+        <span class="svc-tag">Accident Repairs</span>
+        <span class="svc-tag">Dent Removal</span>
+        <span class="svc-tag">Hail Damage</span>
+        <span class="svc-tag">Rust Repair</span>
+      </div>
+    </div>
+    <div class="svc">
+      <span class="svc-icon">🔧</span>
+      <div class="svc-num">03</div>
+      <h3>Car Service &amp; Repairs</h3>
+      <p>Full mechanical servicing and repairs. Logbook services, brakes, diagnostics, suspension, electrical work, and general maintenance to keep you on the road safely.</p>
+      <div class="svc-tags">
+        <span class="svc-tag">Full Service</span>
+        <span class="svc-tag">Brake Work</span>
+        <span class="svc-tag">Diagnostics</span>
+        <span class="svc-tag">Suspension</span>
+      </div>
+    </div>
+    <div class="svc">
+      <span class="svc-icon">🛞</span>
+      <div class="svc-num">04</div>
+      <h3>Parts Sourcing, Sales &amp; Fitting</h3>
+      <p>We source genuine and quality aftermarket parts for all makes and models. Hard-to-find parts? We track them down. Supply-only or supply-and-fit available.</p>
+      <div class="svc-tags">
+        <span class="svc-tag">Genuine Parts</span>
+        <span class="svc-tag">Aftermarket</span>
+        <span class="svc-tag">Supply &amp; Fit</span>
+        <span class="svc-tag">All Brands</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE FORM -->
+<section id="quote">
+  <div class="quote-container">
+    <div style="text-align:center;margin-bottom:2.5rem;">
+      <div class="sec-label">Get In Touch</div>
+      <h2 class="sec-title">Request a <span>Quote</span></h2>
+      <p class="sec-sub" style="margin:0 auto;">Tell us about your vehicle and what you need — we'll come back to you fast.</p>
+    </div>
+
+    <div class="paint-streak"></div>
+    <div class="quote-box">
+      <div class="quote-head">
+        <div>
+          <h2>Vehicle &amp; Service Request</h2>
+          <p>All starred fields (*) are required. We respond within 24 hours.</p>
+        </div>
+        <div class="q-badges">
+          <span class="q-badge">📱 WhatsApp</span>
+          <span class="q-badge">✉️ Email</span>
+        </div>
+      </div>
+      <div class="qbody">
+
+        <!-- Customer -->
+        <div class="fgrid">
+          <div class="fg">
+            <label>Full Name *</label>
+            <input type="text" id="fName" placeholder="Your full name"/>
+          </div>
+          <div class="fg">
+            <label>WhatsApp / Phone *</label>
+            <input type="tel" id="fPhone" placeholder="e.g. 073 456 7890"/>
+          </div>
+          <div class="fg">
+            <label>Email Address</label>
+            <input type="email" id="fEmail" placeholder="your@email.co.za"/>
+          </div>
+        </div>
+        <hr class="fdiv"/>
+
+        <!-- Vehicle -->
+        <div class="fgrid">
+          <div class="fg">
+            <label>Vehicle Make *</label>
+            <select id="fMake" onchange="loadModels()">
+              <option value="">— Select Make —</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Vehicle Model *</label>
+            <select id="fModel">
+              <option value="">— Select Model —</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Year *</label>
+            <select id="fYear">
+              <option value="">— Select Year —</option>
+            </select>
+          </div>
+        </div>
+        <hr class="fdiv"/>
+
+        <!-- Services -->
+        <div class="check-label">Service Required * (select all that apply)</div>
+        <div class="check-grid" id="svcGrid">
+          <label class="chk" onclick="chkToggle(this)"><input type="checkbox" value="Spray Painting"/> 🎨 Spray Painting</label>
+          <label class="chk" onclick="chkToggle(this)"><input type="checkbox" value="Panel Beating"/> 🔨 Panel Beating</label>
+          <label class="chk" onclick="chkToggle(this)"><input type="checkbox" value="Car Service"/> 🔧 Car Service</label>
+          <label class="chk" onclick="chkToggle(this)"><input type="checkbox" value="Mechanical Repair"/> ⚙️ Mechanical Repair</label>
+          <label class="chk" onclick="chkToggle(this,true)"><input type="checkbox" value="Parts Sourcing"/> 🛞 Parts Sourcing</label>
+          <label class="chk" onclick="chkToggle(this,true)"><input type="checkbox" value="Parts Fitting"/> 🔩 Parts &amp; Fitting</label>
+        </div>
+
+        <!-- Parts -->
+        <div id="partsSection">
+          <hr class="fdiv"/>
+          <div class="fgrid">
+            <div class="fg">
+              <label>Part Category</label>
+              <select id="fPartCat" onchange="loadParts()">
+                <option value="">— Select Category —</option>
+                <option>Engine &amp; Drivetrain</option>
+                <option>Brakes &amp; Suspension</option>
+                <option>Body Panels &amp; Exterior</option>
+                <option>Lights &amp; Electrical</option>
+                <option>Interior</option>
+                <option>Exhaust System</option>
+                <option>Cooling System</option>
+                <option>Steering</option>
+                <option>Wheels &amp; Tyres</option>
+                <option>Filters &amp; Fluids</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label>Specific Part</label>
+              <select id="fPartName">
+                <option value="">— Select Category First —</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <hr class="fdiv"/>
+
+        <!-- Message -->
+        <div class="fg" style="margin-bottom:1.5rem;">
+          <label>Additional Info / Notes</label>
+          <textarea id="fMsg" placeholder="Describe the damage or what you need, preferred date for service or drop-off, urgency, etc."></textarea>
+        </div>
+
+        <!-- Contact preference -->
+        <div class="check-label">How should we contact you? *</div>
+        <div class="radio-grid">
+          <label class="rdo" onclick="rdoToggle(this)"><input type="radio" name="pref" value="WhatsApp"/> 📱 WhatsApp</label>
+          <label class="rdo" onclick="rdoToggle(this)"><input type="radio" name="pref" value="Email"/> ✉️ Email</label>
+          <label class="rdo" onclick="rdoToggle(this)"><input type="radio" name="pref" value="Either"/> 📞 Call / Either</label>
+        </div>
+
+        <div class="submit-row">
+          <div class="submit-note">
+            Quote sent to:<br>
+            <strong>baldwin.mohamed@gmail.com</strong> &amp; <strong>WhatsApp 073 150 9869</strong>
+          </div>
+          <button id="submitBtn" onclick="submitForm()">Send My Quote Request →</button>
+        </div>
+        <div class="success" id="successMsg">
+          ✅ Request submitted! We'll be in touch with you shortly. Thank you for choosing Ultimate Customs 056!
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="why-grid">
+    <div class="why-left">
+      <div class="sec-label">Why Choose Us</div>
+      <h2>Built on <span>Quality</span> &amp; Trust</h2>
+      <p>We're not just another workshop. At Ultimate Customs 056, every vehicle is treated with the same care and pride we'd give our own cars.</p>
+      <p>Whether it's a minor scratch or a full rebuild — we deliver workmanship that speaks for itself.</p>
+      <ul class="why-list">
+        <li><span class="tick">✓</span>Skilled, experienced technicians on every job</li>
+        <li><span class="tick">✓</span>Premium paints and quality parts — no shortcuts</li>
+        <li><span class="tick">✓</span>All major South African car brands supported</li>
+        <li><span class="tick">✓</span>Transparent, honest pricing — no hidden costs</li>
+        <li><span class="tick">✓</span>Fast turnaround with quality guaranteed</li>
+        <li><span class="tick">✓</span>Proudly South African, serving the 056 community</li>
+      </ul>
+    </div>
+    <div class="why-right">
+      <div class="why-card span2">
+        <div class="big">40<span>+</span></div>
+        <div class="lbl">Car Makes Supported</div>
+      </div>
+      <div class="why-card">
+        <div class="big"><span>4</span></div>
+        <div class="lbl">Core Services</div>
+      </div>
+      <div class="why-card">
+        <div class="big">ZA<span>🇿🇦</span></div>
+        <div class="lbl">Local & Proud</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<div id="brands">
+  <div class="brands-intro">
+    <p>All South African car brands we work with</p>
+  </div>
+  <div class="brands-scroll">
+    <div class="brands-track" id="brandsTrack"></div>
+  </div>
+</div>
+
+<!-- SOCIAL -->
+<section id="social">
+  <div class="social-inner">
+    <h2>Follow Our Work</h2>
+    <p>See our latest before &amp; afters, specials, and workshop updates. TikTok and Instagram dropping soon!</p>
+    <div class="social-cards">
+      <a href="https://web.facebook.com/profile.php?id=61566855836735" target="_blank" class="social-card">
+        <span class="si">📘</span>
+        <div class="sc-text">
+          <div class="sc-name">Facebook</div>
+          <div class="sc-sub">Follow us</div>
+        </div>
+      </a>
+      <div class="social-card soon">
+        <span class="si">📸</span>
+        <div class="sc-text">
+          <div class="sc-name">Instagram</div>
+          <div class="sc-sub">Coming soon</div>
+        </div>
+      </div>
+      <div class="social-card soon">
+        <span class="si">🎵</span>
+        <div class="sc-text">
+          <div class="sc-name">TikTok</div>
+          <div class="sc-sub">Coming soon</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div id="contact">
+  <div class="contact-strip">
+    <div class="ci">
+      <div class="ci-icon">📱</div>
+      <div class="ci-text">
+        <p>WhatsApp / Call</p>
+        <a href="https://wa.me/27731509869">073 150 9869</a>
+      </div>
+    </div>
+    <div class="ci">
+      <div class="ci-icon">✉️</div>
+      <div class="ci-text">
+        <p>Email</p>
+        <a href="mailto:baldwin.mohamed@gmail.com">baldwin.mohamed@gmail.com</a>
+      </div>
+    </div>
+    <div class="ci">
+      <div class="ci-icon">📘</div>
+      <div class="ci-text">
+        <p>Facebook Page</p>
+        <a href="https://web.facebook.com/profile.php?id=61566855836735" target="_blank">Ultimate Customs 056</a>
+      </div>
+    </div>
+    <div class="ci">
+      <div class="ci-icon">⏰</div>
+      <div class="ci-text">
+        <p>Response Time</p>
+        <span>Within 24 hours</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#hero" class="fl">Ultimate <span>Customs</span> 056</a>
+  <p>© 2025 Ultimate Customs 056. All rights reserved. South Africa 🇿🇦</p>
+</footer>
+
+<script>
+/* ======= DATA ======= */
+const carData = {
+  "Alfa Romeo":["Giulia","Giulietta","Stelvio","MiTo"],
+  "Audi":["A1","A3","A4","A5","A6","A7","A8","Q2","Q3","Q5","Q7","Q8","TT","R8","e-tron","RS3","RS4","RS5","RS6","S3","S4","S5"],
+  "BMW":["1 Series","2 Series","3 Series","4 Series","5 Series","6 Series","7 Series","8 Series","X1","X2","X3","X4","X5","X6","X7","Z4","M2","M3","M4","M5","M8","iX","i4","i3"],
+  "BYD":["Atto 3","Dolphin","Han","Seal","Song Plus","Shark"],
+  "Chevrolet":["Spark","Aveo","Cruze","Trax","Captiva","Orlando","Utility","Optra","Sonic"],
+  "Chery":["Tiggo 4","Tiggo 7","Tiggo 8","Arrizo 5","J3","QQ"],
+  "Citroen":["C1","C3","C4","C5","Berlingo","Dispatch","Jumpy","C4 Cactus"],
+  "Datsun":["Go","Go+","Redi-Go"],
+  "Fiat":["Punto","500","Tipo","Doblo","Panda","Linea"],
+  "Ford":["Fiesta","Focus","Mondeo","EcoSport","Kuga","Edge","Explorer","Everest","Ranger","Mustang","Puma","Transit","Bronco"],
+  "GWM":["P-Series","Steed 5","Steed 6","Cannon","Jolion","Tank 300","Ora"],
+  "Haval":["H1","H2","H2S","H4","H6","H9","Jolion"],
+  "Honda":["Jazz","Civic","Accord","CR-V","HR-V","BR-V","Ballade","WR-V"],
+  "Hyundai":["i10","i20","i30","Accent","Elantra","Sonata","Tucson","Santa Fe","Creta","Venue","Grand i10","H1","Staria","Kona"],
+  "Isuzu":["D-Max","MU-X","KB Series","F-Series"],
+  "Jaguar":["XE","XF","XJ","F-Type","E-Pace","F-Pace","I-Pace"],
+  "Jeep":["Renegade","Compass","Cherokee","Grand Cherokee","Wrangler","Gladiator"],
+  "Kia":["Picanto","Rio","Cerato","Sportage","Seltos","Sorento","Carnival","Stinger","EV6"],
+  "Land Rover":["Defender","Discovery Sport","Discovery","Range Rover Evoque","Range Rover Velar","Range Rover Sport","Range Rover"],
+  "Lexus":["CT","IS","ES","GS","LS","UX","NX","RX","GX","LX"],
+  "Mahindra":["Pik Up","XUV300","XUV500","Scorpio","Thar"],
+  "Mazda":["Mazda2","Mazda3","Mazda6","CX-3","CX-5","CX-9","CX-30","BT-50","MX-5"],
+  "Mercedes-Benz":["A-Class","B-Class","C-Class","E-Class","S-Class","CLA","CLS","GLA","GLB","GLC","GLE","GLS","G-Class","AMG GT","EQA","EQC","EQS","V-Class","Vito","Sprinter"],
+  "Mini":["One","Cooper","Cooper S","Clubman","Countryman","Convertible"],
+  "Mitsubishi":["Mirage","Lancer","Eclipse Cross","Outlander","Pajero Sport","Pajero","Triton","Colt"],
+  "Nissan":["Micra","Note","Almera","Sentra","Livina","Qashqai","X-Trail","Pathfinder","Patrol","Navara","NP200","NP300","GT-R","Leaf"],
+  "Opel":["Corsa","Astra","Insignia","Meriva","Mokka","Crossland","Grandland","Vivaro"],
+  "Peugeot":["108","208","308","508","2008","3008","5008","Partner","Expert","Boxer"],
+  "Porsche":["911","Cayenne","Macan","Panamera","Taycan","718"],
+  "Renault":["Kwid","Sandero","Clio","Megane","Captur","Duster","Koleos","Triber","Kiger","Master"],
+  "Skoda":["Citigo","Fabia","Rapid","Octavia","Superb","Karoq","Kodiaq","Kamiq"],
+  "Ssangyong":["Tivoli","Korando","Rexton","Musso"],
+  "Subaru":["Impreza","XV","Forester","Outback","Legacy","WRX","BRZ"],
+  "Suzuki":["Alto","Ignis","Swift","Baleno","Ciaz","Ertiga","Vitara","S-Cross","Jimny","Grand Vitara","Carry"],
+  "Toyota":["Aygo","Yaris","Etios","Corolla","Camry","Avanza","Rush","C-HR","RAV4","Fortuner","Land Cruiser","Land Cruiser Prado","Hilux","Quantum","HiAce","86","Supra","GR Yaris","Starlet","Rumion"],
+  "Volkswagen":["Up","Polo","Polo Vivo","Golf","Jetta","Passat","Arteon","Tiguan","T-Cross","T-Roc","Touareg","Amarok","Caddy","Transporter","Crafter","ID.3","ID.4"],
+  "Volvo":["V40","S60","V60","S90","V90","XC40","XC60","XC90"],
+  "JAC":["J5","T8","S4"],
+  "Foton":["Tunland G7","Toano"],
+};
+
+const partsData = {
+  "Engine & Drivetrain":["Alternator","Starter Motor","Timing Belt/Chain Kit","Turbocharger","Gearbox","Clutch Kit","Flywheel","Crankshaft","Camshaft","Pistons","Cylinder Head","Head Gasket","Intake Manifold","Exhaust Manifold","Throttle Body","Fuel Injectors","Fuel Pump","CV Joint / Driveshaft","Differential","Transfer Case","Engine Mounts"],
+  "Brakes & Suspension":["Brake Pads","Brake Discs","Brake Drums","Brake Shoes","Brake Caliper","Brake Hose/Line","Brake Master Cylinder","ABS Sensor","Shock Absorber","Coil Spring","Control Arm","Ball Joint","Tie Rod End","Wheel Bearing Hub","Sway Bar Link","Strut","Subframe"],
+  "Body Panels & Exterior":["Bonnet / Hood","Front Bumper","Rear Bumper","Front Door","Rear Door","Fender / Wing","Mudguard","Roof Panel","Boot Lid / Tailgate","Side Skirt","Quarter Panel","Grille","Spoiler","Side Mirror","Windscreen","Rear Windscreen","Side Window","Door Handle","Exterior Trim"],
+  "Lights & Electrical":["Headlight Assembly","Taillight Assembly","Fog Light","DRL","Indicator Light","Reverse Light","Interior Light","Battery","Fuse Box","Wiring Loom","Horn","O2 / Lambda Sensor","MAP Sensor","MAF Sensor","ECU / Engine Computer","Ignition Coil","Spark Plugs","Glow Plugs"],
+  "Interior":["Dashboard","Centre Console","Seat","Door Panel","Carpet","Headliner","Steering Wheel","Instrument Cluster","Radio / Infotainment","Airbag","Sun Visor","Window Regulator","Window Switch","HVAC Controls","Gear Knob / Shift Boot"],
+  "Exhaust System":["Catalytic Converter","Exhaust Manifold","Middle Section / Flex Pipe","Rear Muffler / Silencer","Exhaust Tip","O2 Sensor","DPF / Diesel Particulate Filter","EGR Valve"],
+  "Cooling System":["Radiator","Water Pump","Thermostat","Coolant","Radiator Fan","Fan Clutch","Intercooler","Heater Core","Coolant Hoses"],
+  "Steering":["Power Steering Pump","Steering Rack","Steering Column","Tie Rod","Idler Arm","Pitman Arm","Power Steering Fluid"],
+  "Wheels & Tyres":["Steel Rim","Alloy Rim","Tyre (specify size)","Hub Cap","Centre Cap","Wheel Bolts / Lug Nuts","TPMS Sensor","Spare Wheel"],
+  "Filters & Fluids":["Oil Filter","Air Filter","Cabin Filter","Fuel Filter","Engine Oil","Transmission Fluid","Brake Fluid","Coolant","Gear Oil","Differential Oil","Power Steering Fluid"],
+  "Other":["Other — please describe in notes"],
+};
+
+/* ======= SETUP ======= */
+function setup() {
+  // Makes
+  const ms = document.getElementById('fMake');
+  Object.keys(carData).sort().forEach(m => {
+    const o = document.createElement('option');
+    o.value = m; o.textContent = m; ms.appendChild(o);
+  });
+  // Years
+  const ys = document.getElementById('fYear');
+  const cy = new Date().getFullYear();
+  for (let y = cy; y >= 1985; y--) {
+    const o = document.createElement('option');
+    o.value = y; o.textContent = y; ys.appendChild(o);
+  }
+  // Brands ticker
+  const brands = Object.keys(carData).sort();
+  const tickItems = [...brands,...brands,...brands];
+  const tt = document.getElementById('tickerTrack');
+  tickItems.forEach(b => {
+    const d = document.createElement('div');
+    d.className = 'ticker-item'; d.textContent = b;
+    tt.appendChild(d);
+  });
+  // Brand chips
+  const doubled = [...brands,...brands];
+  const bt = document.getElementById('brandsTrack');
+  doubled.forEach(b => {
+    const d = document.createElement('div');
+    d.className = 'brand-chip'; d.textContent = b;
+    bt.appendChild(d);
+  });
+}
+
+function loadModels() {
+  const make = document.getElementById('fMake').value;
+  const sel = document.getElementById('fModel');
+  sel.innerHTML = '<option value="">— Select Model —</option>';
+  if (!make) return;
+  (carData[make]||[]).forEach(m => {
+    const o = document.createElement('option');
+    o.value = m; o.textContent = m; sel.appendChild(o);
+  });
+}
+
+function loadParts() {
+  const cat = document.getElementById('fPartCat').value;
+  const sel = document.getElementById('fPartName');
+  sel.innerHTML = '<option value="">— Select Part —</option>';
+  if (!cat || !partsData[cat]) return;
+  partsData[cat].forEach(p => {
+    const o = document.createElement('option');
+    o.value = p; o.textContent = p; sel.appendChild(o);
+  });
+}
+
+function chkToggle(el, isParts) {
+  el.classList.toggle('on');
+  if (isParts) {
+    const anyParts = [...document.querySelectorAll('#svcGrid input:checked')].some(i=>i.value.includes('Parts'));
+    document.getElementById('partsSection').style.display = anyParts ? 'block' : 'none';
+  }
+}
+
+function rdoToggle(el) {
+  document.querySelectorAll('.rdo').forEach(r => r.classList.remove('on'));
+  el.classList.add('on');
+}
+
+function toggleMob() { document.getElementById('mobMenu').classList.toggle('open'); }
+function closeMob() { document.getElementById('mobMenu').classList.remove('open'); }
+
+/* ======= SUBMIT ======= */
+function submitForm() {
+  const name = document.getElementById('fName').value.trim();
+  const phone = document.getElementById('fPhone').value.trim();
+  const email = document.getElementById('fEmail').value.trim();
+  const make = document.getElementById('fMake').value;
+  const model = document.getElementById('fModel').value;
+  const year = document.getElementById('fYear').value;
+  const svcs = [...document.querySelectorAll('#svcGrid input:checked')].map(i=>i.value);
+  const pref = document.querySelector('input[name=pref]:checked')?.value;
+  const partCat = document.getElementById('fPartCat')?.value || '';
+  const partName = document.getElementById('fPartName')?.value || '';
+  const msg = document.getElementById('fMsg').value.trim();
+
+  if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
+  if (!make || !model || !year) { alert('Please select your vehicle make, model and year.'); return; }
+  if (!svcs.length) { alert('Please select at least one service.'); return; }
+  if (!pref) { alert('Please select how you would like to be contacted.'); return; }
+
+  const lines = [
+    `*🔧 NEW QUOTE REQUEST — Ultimate Customs 056*`,
+    ``,
+    `👤 *Customer Details*`,
+    `Name: ${name}`,
+    `Phone: ${phone}`,
+    email ? `Email: ${email}` : null,
+    ``,
+    `🚗 *Vehicle*`,
+    `${year} ${make} ${model}`,
+    ``,
+    `🛠 *Services Required*`,
+    svcs.join(', '),
+    partCat ? `\nPart Category: ${partCat}` : null,
+    partName ? `Specific Part: ${partName}` : null,
+    ``,
+    msg ? `📝 *Notes*\n${msg}` : null,
+    ``,
+    `📞 Preferred Contact: ${pref}`,
+    ``,
+    `_Sent via ultimatecustoms056.co.za_`,
+  ].filter(Boolean).join('\n');
+
+  const waUrl = `https://wa.me/27731509869?text=${encodeURIComponent(lines)}`;
+  const mailSubject = `Quote Request: ${year} ${make} ${model} — ${svcs.join(', ')}`;
+  const mailBody = lines.replace(/\*/g,'').replace(/_/g,'');
+  const mailUrl = `mailto:baldwin.mohamed@gmail.com?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
+
+  if (pref === 'WhatsApp') {
+    window.open(waUrl, '_blank');
+  } else if (pref === 'Email') {
+    window.open(mailUrl, '_blank');
+  } else {
+    window.open(waUrl, '_blank');
+    setTimeout(() => window.open(mailUrl, '_blank'), 600);
+  }
+
+  document.getElementById('successMsg').classList.add('show');
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true; btn.textContent = '✅ Submitted!';
+  setTimeout(() => {
+    btn.disabled = false; btn.textContent = 'Send My Quote Request →';
+    document.getElementById('successMsg').classList.remove('show');
+  }, 9000);
+}
+
+setup();
+</script>
+</body>
+</html>
