@@ -236,29 +236,6 @@ nav{
 .badge-text{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;line-height:1.3;}
 .badge-text span{display:block;color:#fff;font-size:14px;}
 
-/* ===== BRAND TICKER ===== */
-#ticker{
-  background:var(--red);
-  padding:14px 0;overflow:hidden;
-  border-top:1px solid rgba(255,255,255,0.1);
-  border-bottom:1px solid rgba(0,0,0,0.3);
-}
-.ticker-track{
-  display:flex;gap:0;width:max-content;
-  animation:tickerScroll 35s linear infinite;
-}
-@keyframes tickerScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-.ticker-track:hover{animation-play-state:paused;}
-.ticker-item{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:18px;letter-spacing:3px;color:#fff;
-  white-space:nowrap;padding:0 24px;
-  display:flex;align-items:center;gap:24px;
-}
-.ticker-item::after{
-  content:'◆';font-size:10px;color:rgba(255,255,255,0.5);
-}
-
 /* ===== SECTION SHARED ===== */
 section{padding:90px 2.5rem;}
 .sec-label{
@@ -304,9 +281,13 @@ section{padding:90px 2.5rem;}
 .svc:hover{border-color:rgba(209,0,0,0.35);background:var(--black4);}
 .svc:hover::after{transform:scaleX(1);}
 .svc-icon{
-  font-size:44px;margin-bottom:1.5rem;display:block;
-  filter:drop-shadow(0 0 12px rgba(209,0,0,0.3));
+  width:52px;height:52px;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;
+  background:rgba(209,0,0,0.08);border:1px solid rgba(209,0,0,0.2);border-radius:8px;
+  color:var(--red);flex-shrink:0;
 }
+.svc-icon svg{width:28px;height:28px;stroke:var(--red);}
+.badge-icon{font-size:22px;display:flex;align-items:center;justify-content:center;width:36px;height:36px;flex-shrink:0;}
+.badge-icon svg{width:28px;height:28px;stroke:var(--red);}
 .svc h3{
   font-family:'Bebas Neue',sans-serif;
   font-size:28px;letter-spacing:2px;
@@ -363,6 +344,7 @@ section{padding:90px 2.5rem;}
   background:rgba(209,0,0,0.12);border:1px solid rgba(209,0,0,0.25);
   color:#ff7070;font-size:12px;font-weight:700;
   padding:5px 12px;border-radius:20px;
+  display:flex;align-items:center;gap:6px;
 }
 .qbody{padding:2.5rem;}
 
@@ -408,14 +390,17 @@ section{padding:90px 2.5rem;}
   gap:8px;margin-bottom:1.5rem;
 }
 .chk{
-  display:flex;align-items:center;gap:10px;
+  display:flex;align-items:center;gap:8px;
   background:var(--black2);border:1.5px solid var(--border);
   padding:11px 14px;border-radius:5px;cursor:pointer;
   font-size:13px;font-weight:700;color:var(--muted);
   user-select:none;transition:border-color .2s,color .2s;
 }
+.chk svg{stroke:var(--muted);transition:stroke .2s;flex-shrink:0;}
 .chk:hover{border-color:rgba(209,0,0,0.4);}
+.chk:hover svg{stroke:var(--red);}
 .chk.on{border-color:var(--red);color:#fff;background:rgba(209,0,0,0.06);}
+.chk.on svg{stroke:var(--red);}
 .chk input[type=checkbox]{accent-color:var(--red);width:15px;height:15px;cursor:pointer;flex-shrink:0;}
 
 /* radio */
@@ -656,11 +641,6 @@ footer p{font-size:12px;font-weight:600;color:var(--muted);}
   <div class="paint-drip"></div>
   <div class="gear-bg"></div>
 
-  <div class="hero-tag">
-    <span class="dot"></span>
-    Proudly South African · Est. in the 056 Region
-  </div>
-
   <h1>
     Ultimate<br>
     <span class="line-red">Customs</span>
@@ -678,28 +658,35 @@ footer p{font-size:12px;font-weight:600;color:var(--muted);}
 
   <div class="hero-badges">
     <div class="badge">
-      <span class="badge-icon">🎨</span>
+      <span class="badge-icon">
+        <!-- Spray gun -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h10v6H3z"/><path d="M13 11h3l2-4h1a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-1"/><path d="M6 15v2a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-2"/><path d="M5 9V7a1 1 0 0 1 1-1h2"/><path d="M16 7h2"/><path d="M18 5v4"/></svg>
+      </span>
       <div class="badge-text"><span>Spray Painting</span>Factory finish quality</div>
     </div>
     <div class="badge">
-      <span class="badge-icon">🔨</span>
+      <span class="badge-icon">
+        <!-- Car with dent/repair -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h2"/><path d="M19 17h2a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2"/><path d="M5 7l2-4h10l2 4"/><path d="M5 17h14"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="17.5" r="2.5"/><path d="M10 11h4"/><path d="M12 9v4"/></svg>
+      </span>
       <div class="badge-text"><span>Panel Beating</span>Accident damage experts</div>
     </div>
     <div class="badge">
-      <span class="badge-icon">🔧</span>
+      <span class="badge-icon">
+        <!-- Wrench/spanner -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      </span>
       <div class="badge-text"><span>Car Service</span>All makes &amp; models</div>
     </div>
     <div class="badge">
-      <span class="badge-icon">🛞</span>
+      <span class="badge-icon">
+        <!-- Tyre/wheel -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M19.07 4.93l-2.83 2.83M7.76 16.24l-2.83 2.83"/></svg>
+      </span>
       <div class="badge-text"><span>Parts Supply</span>Sourcing &amp; fitting</div>
     </div>
   </div>
 </section>
-
-<!-- TICKER -->
-<div id="ticker">
-  <div class="ticker-track" id="tickerTrack"></div>
-</div>
 
 <!-- SERVICES -->
 <section id="services">
@@ -710,7 +697,7 @@ footer p{font-size:12px;font-weight:600;color:var(--muted);}
   </div>
   <div class="services-grid">
     <div class="svc">
-      <span class="svc-icon">🎨</span>
+      <span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h10v6H3z"/><path d="M13 11h3l2-4h1a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-1"/><path d="M6 15v2a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-2"/><path d="M5 9V7a1 1 0 0 1 1-1h2"/><path d="M16 7h2"/><path d="M18 5v4"/></svg></span>
       <div class="svc-num">01</div>
       <h3>Spray Painting</h3>
       <p>From a full vehicle respray to panel spot repairs, we use premium automotive paints for a showroom finish. Colour matching, custom finishes, and scratch repairs.</p>
@@ -722,7 +709,7 @@ footer p{font-size:12px;font-weight:600;color:var(--muted);}
       </div>
     </div>
     <div class="svc">
-      <span class="svc-icon">🔨</span>
+      <span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 12h-2l-1-3H6l-1 3H3a1 1 0 0 0-1 1v3h2"/><path d="M22 13v3h-2"/><path d="M5 16a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/><path d="M15 16a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/><path d="M3 13h18"/><path d="M12 9V5l4 2"/></svg></span>
       <div class="svc-num">02</div>
       <h3>Panel Beating</h3>
       <p>Expert panel beating restoring your vehicle's body to its original shape. Hail damage, accident repairs, dent removal — we make it look like it never happened.</p>
@@ -734,7 +721,7 @@ footer p{font-size:12px;font-weight:600;color:var(--muted);}
       </div>
     </div>
     <div class="svc">
-      <span class="svc-icon">🔧</span>
+      <span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
       <div class="svc-num">03</div>
       <h3>Car Service &amp; Repairs</h3>
       <p>Full mechanical servicing and repairs. Logbook services, brakes, diagnostics, suspension, electrical work, and general maintenance to keep you on the road safely.</p>
@@ -746,7 +733,7 @@ footer p{font-size:12px;font-weight:600;color:var(--muted);}
       </div>
     </div>
     <div class="svc">
-      <span class="svc-icon">🛞</span>
+      <span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M19.07 4.93l-2.83 2.83M7.76 16.24l-2.83 2.83"/></svg></span>
       <div class="svc-num">04</div>
       <h3>Parts Sourcing, Sales &amp; Fitting</h3>
       <p>We source genuine and quality aftermarket parts for all makes and models. Hard-to-find parts? We track them down. Supply-only or supply-and-fit available.</p>
@@ -777,8 +764,14 @@ footer p{font-size:12px;font-weight:600;color:var(--muted);}
           <p>All starred fields (*) are required. We respond within 24 hours.</p>
         </div>
         <div class="q-badges">
-          <span class="q-badge">📱 WhatsApp</span>
-          <span class="q-badge">✉️ Email</span>
+          <span class="q-badge">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </span>
+          <span class="q-badge">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email
+          </span>
         </div>
       </div>
       <div class="qbody">
@@ -826,12 +819,24 @@ footer p{font-size:12px;font-weight:600;color:var(--muted);}
         <!-- Services -->
         <div class="check-label">Service Required * (select all that apply)</div>
         <div class="check-grid" id="svcGrid">
-          <label class="chk" onclick="chkToggle(this)"><input type="checkbox" value="Spray Painting"/> 🎨 Spray Painting</label>
-          <label class="chk" onclick="chkToggle(this)"><input type="checkbox" value="Panel Beating"/> 🔨 Panel Beating</label>
-          <label class="chk" onclick="chkToggle(this)"><input type="checkbox" value="Car Service"/> 🔧 Car Service</label>
-          <label class="chk" onclick="chkToggle(this)"><input type="checkbox" value="Mechanical Repair"/> ⚙️ Mechanical Repair</label>
-          <label class="chk" onclick="chkToggle(this,true)"><input type="checkbox" value="Parts Sourcing"/> 🛞 Parts Sourcing</label>
-          <label class="chk" onclick="chkToggle(this,true)"><input type="checkbox" value="Parts Fitting"/> 🔩 Parts &amp; Fitting</label>
+          <label class="chk" onclick="chkToggle(this)"><input type="checkbox" value="Spray Painting"/>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h10v6H3z"/><path d="M13 11h3l2-4h1a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-1"/><path d="M6 15v2a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-2"/></svg>
+            Spray Painting</label>
+          <label class="chk" onclick="chkToggle(this)"><input type="checkbox" value="Panel Beating"/>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 12h-2l-1-3H6l-1 3H3a1 1 0 0 0-1 1v3h2"/><path d="M22 13v3h-2"/><path d="M5 16a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/><path d="M15 16a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/><path d="M3 13h18"/></svg>
+            Panel Beating</label>
+          <label class="chk" onclick="chkToggle(this)"><input type="checkbox" value="Car Service"/>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            Car Service</label>
+          <label class="chk" onclick="chkToggle(this)"><input type="checkbox" value="Mechanical Repair"/>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            Mechanical Repair</label>
+          <label class="chk" onclick="chkToggle(this,true)"><input type="checkbox" value="Parts Sourcing"/>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+            Parts Sourcing</label>
+          <label class="chk" onclick="chkToggle(this,true)"><input type="checkbox" value="Parts Fitting"/>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 7V2"/><path d="M15 7V2"/><path d="M6 13H2"/><path d="M22 13h-4"/><path d="M9 7a3 3 0 0 0 6 0"/><rect x="6" y="7" width="12" height="6" rx="2"/></svg>
+            Parts &amp; Fitting</label>
         </div>
 
         <!-- Parts -->
@@ -874,9 +879,15 @@ footer p{font-size:12px;font-weight:600;color:var(--muted);}
         <!-- Contact preference -->
         <div class="check-label">How should we contact you? *</div>
         <div class="radio-grid">
-          <label class="rdo" onclick="rdoToggle(this)"><input type="radio" name="pref" value="WhatsApp"/> 📱 WhatsApp</label>
-          <label class="rdo" onclick="rdoToggle(this)"><input type="radio" name="pref" value="Email"/> ✉️ Email</label>
-          <label class="rdo" onclick="rdoToggle(this)"><input type="radio" name="pref" value="Either"/> 📞 Call / Either</label>
+          <label class="rdo" onclick="rdoToggle(this)"><input type="radio" name="pref" value="WhatsApp"/>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp</label>
+          <label class="rdo" onclick="rdoToggle(this)"><input type="radio" name="pref" value="Email"/>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email</label>
+          <label class="rdo" onclick="rdoToggle(this)"><input type="radio" name="pref" value="Either"/>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 1.29h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 7.25 7.25l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call / Either</label>
         </div>
 
         <div class="submit-row">
@@ -945,21 +956,21 @@ footer p{font-size:12px;font-weight:600;color:var(--muted);}
     <p>See our latest before &amp; afters, specials, and workshop updates. TikTok and Instagram dropping soon!</p>
     <div class="social-cards">
       <a href="https://web.facebook.com/profile.php?id=61566855836735" target="_blank" class="social-card">
-        <span class="si">📘</span>
+        <svg class="si" width="28" height="28" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
         <div class="sc-text">
           <div class="sc-name">Facebook</div>
           <div class="sc-sub">Follow us</div>
         </div>
       </a>
       <div class="social-card soon">
-        <span class="si">📸</span>
+        <svg class="si" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--silver-dark)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         <div class="sc-text">
           <div class="sc-name">Instagram</div>
           <div class="sc-sub">Coming soon</div>
         </div>
       </div>
       <div class="social-card soon">
-        <span class="si">🎵</span>
+        <svg class="si" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--silver-dark)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
         <div class="sc-text">
           <div class="sc-name">TikTok</div>
           <div class="sc-sub">Coming soon</div>
@@ -973,28 +984,36 @@ footer p{font-size:12px;font-weight:600;color:var(--muted);}
 <div id="contact">
   <div class="contact-strip">
     <div class="ci">
-      <div class="ci-icon">📱</div>
+      <div class="ci-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </div>
       <div class="ci-text">
         <p>WhatsApp / Call</p>
         <a href="https://wa.me/27731509869">073 150 9869</a>
       </div>
     </div>
     <div class="ci">
-      <div class="ci-icon">✉️</div>
+      <div class="ci-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
       <div class="ci-text">
         <p>Email</p>
         <a href="mailto:baldwin.mohamed@gmail.com">baldwin.mohamed@gmail.com</a>
       </div>
     </div>
     <div class="ci">
-      <div class="ci-icon">📘</div>
+      <div class="ci-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </div>
       <div class="ci-text">
         <p>Facebook Page</p>
         <a href="https://web.facebook.com/profile.php?id=61566855836735" target="_blank">Ultimate Customs 056</a>
       </div>
     </div>
     <div class="ci">
-      <div class="ci-icon">⏰</div>
+      <div class="ci-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
       <div class="ci-text">
         <p>Response Time</p>
         <span>Within 24 hours</span>
@@ -1082,16 +1101,8 @@ function setup() {
     const o = document.createElement('option');
     o.value = y; o.textContent = y; ys.appendChild(o);
   }
-  // Brands ticker
-  const brands = Object.keys(carData).sort();
-  const tickItems = [...brands,...brands,...brands];
-  const tt = document.getElementById('tickerTrack');
-  tickItems.forEach(b => {
-    const d = document.createElement('div');
-    d.className = 'ticker-item'; d.textContent = b;
-    tt.appendChild(d);
-  });
   // Brand chips
+  const brands = Object.keys(carData).sort();
   const doubled = [...brands,...brands];
   const bt = document.getElementById('brandsTrack');
   doubled.forEach(b => {
